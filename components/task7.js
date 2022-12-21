@@ -6,18 +6,17 @@ const App = () => {
 
   const [citylist, setDeleteFromList] = useState(cities)
 
-  const removeRandom = () => {
-       const random = (Math.floor(Math.random() * citylist.length) - 1);
-       citylist.splice(random, 1)
-       setDeleteFromList([...citylist])
-       
-    }
-  
+  const Delete = () => {
+    let deleteCity = citylist.shift()
+    console.log(citylist);
+
+    setDeleteFromList([...citylist])
+  }
 
 
   return (
     <View>
-      <Button title="Delete" onPress={() => removeRandom()}/>
+      <Button title="Delete" onPress={() => Delete()}/>
       {
             citylist.map((item) => <Text>{item}</Text>)
       }
